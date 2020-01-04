@@ -1,0 +1,32 @@
+Program to Display User and System Information:
+
+#include<stdio.h>
+#include<sys/types.h>
+#include<unistd.h>
+#include<sys/utsname.h>
+void main()
+{
+struct utsname u;
+char b[19],b1[20],b3[20];
+int size=20;
+printf("\nUser Information");
+printf("\nProcess ID = %d",getpid());
+printf("\nParent Process ID = %d",getppid());
+printf("\nCurrent Working Directory = %s",b,getcwd(b,size));
+printf("\nReal User ID = %d",getuid());
+printf("\nEffective User ID = %d",geteuid());
+printf("\nReal Group ID = %d",getgid());
+printf("\nEffective Group ID = %d",getegid());
+printf("\nHost ID = %ld",gethostid());
+printf("\nHost Name = %s",b1,gethostname(b1,20));
+printf("\nlogin Name = %s",getlogin());
+printf("\n\nSystem Information");
+if(uname(&u)==0)
+{
+printf("\nSystem Name = %s",u.sysname);
+printf("\nRelease = %s",u.release);
+printf("\nVersion = %s",u.version);
+printf("\nMachine Name = %s",u.machine);
+printf("\nNode Name = %s\n",u.nodename);
+}
+}
